@@ -1,11 +1,11 @@
-from pydantic import BaseModel
-from typing import List, Optional
+from pydantic import BaseModel, Field
+
 
 class DeckEvaluateRequest(BaseModel):
-    card_ids: List[str]
-    trophy_range: str
+    avg_elixir: float = Field(..., ge=0.0, le=10.0)
+    opponent_avg_elixir: float = Field(4.0, ge=0.0, le=10.0)
+
 
 class DeckEvaluateResponse(BaseModel):
-    card_ids: List[str]
-    trophy_range: str
-    predicted_win_rate: float
+    win_probability: float = Field(..., ge=0.0, le=1.0)
+    features: dict[str, float]
