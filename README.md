@@ -30,4 +30,4 @@ docker-compose up --build
 3. Populate database with meta decks
 4. Integrate RoyaleAPI
 5. Deploy to cloud
-# Clash-Royale-Analysis
+
